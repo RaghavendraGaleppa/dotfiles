@@ -308,7 +308,7 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,
 exec mako
 
 exec systemctl --user start pulseaudio.service
-exec_always /home/raghaveendrawork/dotfiles/RaghavConfigs/wallpaper_changer.sh
+exec_always /home/raghaveendrawork/dotfiles/scripts/wallpaper_changer.sh
 
 
 # Gaps & Borders

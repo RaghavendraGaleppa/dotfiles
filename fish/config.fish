@@ -3,6 +3,10 @@ if status is-interactive
 end
 source ~/.bash_aliases
 
+if test -e ~/.bash_aliases_work
+    source ~/.bash_aliases_work
+end
+
 # Fish related Settings
 
 #fish_vi_key_bindings

@@ -308,11 +308,7 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,
 exec mako
 
 exec systemctl --user start pulseaudio.service
-
-# Wallpapers
-#exec_always swww-daemon
-#exec_always bash -c 'while true; do swww img "$(find ~/Pictures/Wallpapers -type f | shuf -n 1)" --transition-type fade --transition-duration 2; sleep 600; done'
-exec_always /home/raghaveendrawork/RaghavConfigs/wallpaper_changer.sh
+exec_always /home/raghaveendrawork/dotfiles/RaghavConfigs/wallpaper_changer.sh
 
 
 # Gaps & Borders

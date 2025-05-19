@@ -303,7 +303,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,ssh
+#exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,ssh
 
 exec mako
 
@@ -319,7 +319,7 @@ default_border pixel 4
 
 # Displays
 output $monitor_main pos 0 0
-output $monitor_second scale 0.9
+#output $monitor_second scale 0.9
 
 # Lock screen
 bindsym $mod+Shift+l exec swaylock -c 333333

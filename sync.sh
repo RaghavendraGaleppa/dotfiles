@@ -4,6 +4,7 @@ cp -r ~/.config/nvim .
 cp -r ~/.config/wlogout .
 cp -r ~/.config/waybar .
 cp -r ~/.config/sway .
+cp -r ~/.config/alacritty .
 
 cp ~/.bashrc .
 cp ~/.bash_aliases .

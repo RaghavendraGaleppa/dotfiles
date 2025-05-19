@@ -1,5 +1,7 @@
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
+    background-color: rgba(0, 0, 0, 0.2); /* Adjust the alpha value (0.0 to 1.0) for transparency */
+    color: #FFFFFF; /* Default to white text for vibrancy against transparency */
+    /*background-color: rgba(43, 48, 59, 0.5);*/
     border: 2px solid rgba(100, 114, 125, 0.5);
     color: #ffffff;
     transition-property: background-color;
@@ -12,7 +14,6 @@ window#waybar {
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: "JetBrains Mono Extrabold";
-
     font-size: 13px;
     padding-top: 3px;
     padding-bottom: 3px;
@@ -129,32 +130,30 @@ button:hover {
     margin-right: 0;
 }
 
-
 #clock {
-    background-color: #64727D;
+    background-color: rgba(100, 114, 125, 0.6); /* Slightly more opaque for readability */
 }
 
 #battery {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.7);
     color: #000000;
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: #FFFFFF;
+    background-color: rgba(38, 166, 91, 0.8); /* More vibrant green */
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.7);
         color: #000000;
     }
 }
 
-/* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: rgba(245, 60, 60, 0.8); /* More vibrant red */
+    color: #FFFFFF;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -162,97 +161,94 @@ button:hover {
     animation-direction: alternate;
 }
 
-#power-profiles-daemon {
-    padding-right: 15px;
-}
-
 #power-profiles-daemon.performance {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: rgba(245, 60, 60, 0.8); /* More vibrant red */
+    color: #FFFFFF;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #2980b9;
-    color: #ffffff;
+    background-color: rgba(41, 128, 185, 0.8); /* More vibrant blue */
+    color: #FFFFFF;
 }
 
 #power-profiles-daemon.power-saver {
-    background-color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.8); /* More vibrant green */
     color: #000000;
 }
 
 label:focus {
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #FFFFFF;
 }
 
 #cpu {
-    background-color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.8); /* More vibrant green */
     color: #000000;
 }
 
 #memory {
-    background-color: #9b59b6;
+    background-color: rgba(155, 89, 182, 0.8); /* More vibrant purple */
 }
 
 #disk {
-    background-color: #964B00;
+    background-color: rgba(150, 75, 0, 0.8); /* More vibrant brown */
 }
 
 #backlight {
-    background-color: #90b1b1;
+    background-color: rgba(144, 177, 177, 0.8); /* More vibrant cyan */
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: rgba(41, 128, 185, 0.8); /* More vibrant blue */
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    background-color: rgba(245, 60, 60, 0.8); /* More vibrant red */
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
+    background-color: rgba(241, 196, 15, 0.8); /* More vibrant yellow */
     color: #000000;
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
+    background-color: rgba(144, 177, 177, 0.6); /* Slightly more transparent muted */
     color: #2a5c45;
 }
 
 #wireplumber {
-    background-color: #fff0f5;
+    background-color: rgba(255, 240, 245, 0.7); /* More vibrant light pink */
     color: #000000;
 }
 
 #wireplumber.muted {
-    background-color: #f53c3c;
+    background-color: rgba(245, 60, 60, 0.8); /* More vibrant red */
 }
 
 #custom-media {
-    background-color: #66cc99;
+    background-color: rgba(102, 204, 153, 0.8); /* More vibrant teal */
     color: #2a5c45;
     min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-    background-color: #66cc99;
+    background-color: rgba(29, 185, 84, 0.8); /* More vibrant Spotify green */
 }
 
 #custom-media.custom-vlc {
-    background-color: #ffa000;
+    background-color: rgba(255, 160, 0, 0.8); /* More vibrant VLC orange */
 }
 
 #temperature {
-    background-color: #f0932b;
+    background-color: rgba(240, 147, 43, 0.8); /* More vibrant orange */
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    background-color: rgba(235, 77, 75, 0.8); /* More vibrant red */
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: rgba(41, 128, 185, 0.6); /* Slightly more transparent tray */
 }
 
 #tray > .passive {
@@ -261,37 +257,38 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: rgba(235, 77, 75, 0.8); /* More vibrant red */
 }
 
 #idle_inhibitor {
-    background-color: #2d3436;
+    background-color: rgba(45, 52, 54, 0.6); /* Slightly more transparent dark gray */
+    color: #ecf0f1;
 }
 
 #idle_inhibitor.activated {
-    background-color: #ecf0f1;
+    background-color: rgba(236, 240, 241, 0.8); /* More vibrant light gray */
     color: #2d3436;
 }
 
 #mpd {
-    background-color: #66cc99;
+    background-color: rgba(102, 204, 153, 0.8); /* More vibrant teal */
     color: #2a5c45;
 }
 
 #mpd.disconnected {
-    background-color: #f53c3c;
+    background-color: rgba(245, 60, 60, 0.8); /* More vibrant red */
 }
 
 #mpd.stopped {
-    background-color: #90b1b1;
+    background-color: rgba(144, 177, 177, 0.6); /* Slightly more transparent stopped */
 }
 
 #mpd.paused {
-    background-color: #51a37a;
+    background-color: rgba(81, 163, 122, 0.8); /* More vibrant paused green */
 }
 
 #language {
-    background: #00b093;
+    background: rgba(0, 176, 147, 0.8); /* More vibrant teal */
     color: #740864;
     padding: 0 5px;
     margin: 0 5px;
@@ -299,7 +296,7 @@ label:focus {
 }
 
 #keyboard-state {
-    background: #97e1ad;
+    background: rgba(151, 225, 173, 0.8); /* More vibrant light green */
     color: #000000;
     padding: 0 0px;
     margin: 0 5px;
@@ -311,15 +308,16 @@ label:focus {
 }
 
 #keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.4); /* Slightly more opaque locked state */
 }
 
 #scratchpad {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.4); /* Slightly more opaque scratchpad */
+    color: #FFFFFF;
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+    background-color: transparent;
 }
 
 #privacy {
@@ -328,37 +326,34 @@ label:focus {
 
 #privacy-item {
     padding: 0 5px;
-    color: white;
+    color: #FFFFFF;
 }
 
 #privacy-item.screenshare {
-    background-color: #cf5700;
+    background-color: rgba(207, 87, 0, 0.8); /* More vibrant orange-red */
 }
 
 #privacy-item.audio-in {
-    background-color: #1ca000;
+    background-color: rgba(28, 160, 0, 0.8); /* More vibrant green */
 }
 
 #privacy-item.audio-out {
-    background-color: #0069d4;
+    background-color: rgba(0, 105, 212, 0.8); /* More vibrant blue */
 }
 
-
-/* Add this block to your style.css file */
 #custom-wifi-gui {
-    /* Example styles - adjust as you like */
-    background-color: #3498db; /* A shade of blue for the background */
-    color: #ffffff; /* White text/icon */
-    /* Inherits global padding from the * rule if not specified here */
+    background-color: rgba(52, 152, 219, 0.8); /* More vibrant blue */
+    color: #FFFFFF;
 }
 
-/* You can also add hover effects */
 #custom-wifi-gui:hover {
-    background-color: #2980b9; /* Slightly darker blue on hover */
+    background-color: rgba(41, 128, 185, 0.8); /* Slightly darker vibrant blue on hover */
 }
 
 #custom-power {
-    background-color: #e74c3c; /* A vibrant red */
-    color: #ffffff; /* Keep the icon/text white */
-    /* Add padding, margin, etc. here if you want to adjust its size/spacing */
+    background-color: rgba(231, 76, 60, 0.8); /* More vibrant red */
+    color: #FFFFFF;
 }
+
+
+

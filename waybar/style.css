@@ -14,7 +14,7 @@ window#waybar {
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: "JetBrains Mono Extrabold";
-    font-size: 13px;
+    font-size: 15px;
     padding-top: 3px;
     padding-bottom: 3px;
     padding-left: 5px;
@@ -64,6 +64,7 @@ button:hover {
 }
 
 #workspaces button {
+    font-size: 16px;
     background-color: transparent;
     color: #ffffff;
     padding-top: 5px;

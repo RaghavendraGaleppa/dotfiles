@@ -15,7 +15,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term terminator
+set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -294,7 +294,7 @@ bindsym $mod+Shift+p workspace $ws1; exec Cursor
 bindsym $mod+Shift+m exec microsoft-edge
 bindsym $mod+Shift+f workspace $ws5; exec brave-browser --profile-directory="Default"
 
-bindsym $mod+Shift+o workspace $ws5; exec terminator -e ranger
+bindsym $mod+Shift+o workspace $ws5; exec $term -e ranger
 bindsym --release $mod+x exec --no-startup-id import /home/raghaveendrawork/Pictures/Screenshots/latest-screenshot.png
 
 for_window [class="ipython"] floating enable

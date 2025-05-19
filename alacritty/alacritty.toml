@@ -1,0 +1,33 @@
+[font]
+# Normal (roman) font face
+normal = { family = "JetBrains Mono", style = "Bold" }
+
+# Bold font face
+bold = { family = "JetBrains Mono", style = "Bold" }
+
+# Italic font face
+italic = { family = "JetBrains Mono", style = "Italic" } # If you have the italic variant
+
+# Bold italic font face
+bold_italic = { family = "JetBrains Mono", style = "Bold Italic" } # If you have the bold italic variant
+
+# Point size for the font
+size = 14.0 # Adjust to your preferred size
+
+[window]
+opacity = 0.9
+padding = { x = 10, y = 5 }
+
+
+[colors]
+primary = { background = "#000000", foreground = "#D3D3D3" }
+
+
+# Normal colors
+normal = { black = "#000000", red = "#FF0000", green = "#00FF00", yellow = "#FFFF00", blue = "#5555FF", magenta = "#FF00FF", cyan = "#00FFFF", white = "#FFFFFF" }
+
+# Bright colors
+bright = { black = "#808080", red = "#FF5555", green = "#55FF55", yellow = "#FFFF55", blue = "#8080FF", magenta = "#FF55FF", cyan = "#55FFFF", white = "#FFFFFF"}
+
+# Dim colors
+dim = { black = "#000000", red = "#800000", green = "#008000", yellow = "#808000", blue = "#000080", magenta = "#800080", cyan = "#008080", white = "#C0C0C0"}

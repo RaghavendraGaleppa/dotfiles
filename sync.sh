@@ -10,3 +10,4 @@ cp ~/.bashrc .
 cp ~/.bash_aliases .
 cp ~/.vimrc .
 
+git add .;git commit -m "BOOM"; git push

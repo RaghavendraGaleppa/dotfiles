@@ -295,7 +295,6 @@ bindsym $mod+Shift+m exec microsoft-edge
 bindsym $mod+Shift+f workspace $ws5; exec brave-browser --profile-directory="Default"
 
 bindsym $mod+Shift+o workspace $ws5; exec $term -e ranger
-bindsym --release $mod+x exec --no-startup-id import /home/raghaveendrawork/Pictures/Screenshots/latest-screenshot.png
 
 for_window [class="ipython"] floating enable
 bindsym $mod+i exec $term -e ipython3 
@@ -315,7 +314,8 @@ exec_always /home/raghaveendrawork/dotfiles/scripts/wallpaper_changer.sh
 gaps inner 10
 
 default_border none
-default_border pixel 4
+default_border pixel 2
+
 
 # Displays
 output $monitor_main pos 0 0
@@ -323,3 +323,10 @@ output $monitor_main pos 0 0
 
 # Lock screen
 bindsym $mod+Shift+l exec swaylock -c 333333
+
+# Screenshot selected region and edit with swappy
+bindsym $mod+x exec grim -g "$(slurp)" - | swappy -f -
+# Screenshot current output and edit with swappy
+bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | swappy -f -
+# Screenshot current output and save to Pictures
+bindsym $mod+Shift+x exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') ~/Pictures/GrimScreenshots/$(date +'%Y-%m-%d_%H-%M-%S_screenshot.png')

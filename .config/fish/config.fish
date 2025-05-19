@@ -39,4 +39,3 @@ set -gx PYTHONPATH /home/raghaveendrawork/Desktop/ChineseNovelTranslation/ChatGP
 set -gx OPENROUTER_API_KEY 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
 
 set -U fish_user_paths /home/raghaveendrawork/bin $fish_user_paths
-

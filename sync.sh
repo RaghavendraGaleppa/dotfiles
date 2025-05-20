@@ -5,6 +5,7 @@ cp -r ~/.config/wlogout .config/
 cp -r ~/.config/waybar .config/
 cp -r ~/.config/sway .config/
 cp -r ~/.config/alacritty .config/
+cp -r ~/.config/xdg-desktop-portal/ .config/
 
 cp ~/.bashrc .
 cp ~/.bash_aliases .

@@ -67,6 +67,8 @@ include /etc/sway/config-vars.d/*
 # Basics:
 #
 
+for_window [title="cava_visualizer"] floating enable
+
     # Make sure the path to your start_tmux.fish script is correct
     bindsym $mod+Return exec alacritty -e ~/.config/fish/start_tmux.fish
 
@@ -296,12 +298,12 @@ include /etc/sway/config.d/*
 
 
 # Exclusives
-bindsym $mod+Shift+v workspace $ws3; exec brave-browser --profile-directory="Profile 1"
+bindsym $mod+Shift+v workspace $ws3; exec brave-browser-nightly --profile-directory="Profile 1"
 bindsym $mod+Shift+g workspace $ws3; exec google-chrome --profile-directory="Profile 2"
 bindsym $mod+Shift+s exec slack
 bindsym $mod+Shift+p workspace $ws1; exec Cursor
-bindsym $mod+Shift+m exec microsoft-edge
-bindsym $mod+Shift+f workspace $ws5; exec brave-browser --profile-directory="Default"
+bindsym $mod+Shift+m workspace $ws10; exec alacritty -o "window.opacity=0.5" -t "cava_visualizer" -e cava -p ~/.config/cava/config
+bindsym $mod+Shift+f workspace $ws5; exec brave-browser-nightly --profile-directory="Default"
 
 bindsym $mod+Shift+o workspace $ws5; exec $term -e ranger
 

@@ -7,6 +7,7 @@ cp -r ~/.config/sway .config/
 cp -r ~/.config/alacritty .config/
 cp -r ~/.config/xdg-desktop-portal/ .config/
 cp -r ~/.config/rofi .config/
+cp -r ~/.config/cava .config/
 
 cp ~/.bashrc .
 cp ~/.bash_aliases .

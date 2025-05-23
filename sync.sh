@@ -13,4 +13,4 @@ cp ~/.bash_aliases .
 cp ~/.vimrc .
 cp ~/.tmux.conf .
 
-git add .;git commit -m "BOOM"; git push
+git diff --stat; git add .;git commit -m "BOOM"; git push

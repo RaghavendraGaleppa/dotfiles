@@ -106,8 +106,11 @@ include /etc/sway/config-vars.d/*
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
-    bindsym $mod+a workspace prev
-    bindsym $mod+d workspace next
+    bindsym $mod+a focus left
+    bindsym $mod+d focus right
+
+    bindsym $mod+Shift+a workspace prev
+    bindsym $mod+Shift+d workspace next
 
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left

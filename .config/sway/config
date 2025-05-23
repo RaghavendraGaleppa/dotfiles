@@ -15,7 +15,8 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term alacritty  # Basic alacritty with tmux open
+set $term2 ala
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -65,8 +66,13 @@ include /etc/sway/config-vars.d/*
 #
 # Basics:
 #
-    # Start a terminal
-    bindsym $mod+Return exec $term
+
+    # Make sure the path to your start_tmux.fish script is correct
+    bindsym $mod+Return exec alacritty -e ~/.config/fish/start_tmux.fish
+
+    # Launch Alacritty normally, without tmux (Mod+Shift+Enter)
+    # Make sure it points to Alacritty and directly executes your default shell (fish)
+    bindsym $mod+Shift+Return exec alacritty -e fish
 
     # Kill focused window
     bindsym $mod+Shift+q kill

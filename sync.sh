@@ -11,5 +11,6 @@ cp -r ~/.config/rofi .config/
 cp ~/.bashrc .
 cp ~/.bash_aliases .
 cp ~/.vimrc .
+cp ~/.tmux.conf .
 
 git add .;git commit -m "BOOM"; git push

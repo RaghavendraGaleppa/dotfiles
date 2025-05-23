@@ -330,3 +330,7 @@ bindsym $mod+x exec grim -g "$(slurp)" - | swappy -f -
 bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | swappy -f -
 # Screenshot current output and save to Pictures
 bindsym $mod+Shift+x exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') ~/Pictures/GrimScreenshots/$(date +'%Y-%m-%d_%H-%M-%S_screenshot.png')
+
+# Set XDG_CURRENT_DESKTOP for portal backends
+exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec --no-startup-id systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP

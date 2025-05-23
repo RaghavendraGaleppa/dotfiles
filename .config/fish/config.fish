@@ -39,3 +39,17 @@ set -gx PYTHONPATH /home/raghaveendrawork/Desktop/ChineseNovelTranslation/ChatGP
 set -gx OPENROUTER_API_KEY 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
 
 set -U fish_user_paths /home/raghaveendrawork/bin $fish_user_paths
+
+# Start or attach to a tmux session when the shell starts in an interactive session
+if status is-interactive
+    if type -q tmux
+        if not set -q TMUX
+            # Check if a session named 'main' exists, if not, create it.
+            # Then attach to it.
+            # 'and' in fish is equivalent to '&&' in bash/zsh
+            # 'or' in fish is equivalent to '||' in bash/zsh
+            tmux attach-session -t main
+            or tmux new-session -s main
+        end
+    end
+end

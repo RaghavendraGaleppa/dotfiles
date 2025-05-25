@@ -74,8 +74,7 @@ for_window [title="cava_visualizer"] floating enable
 
     # Launch Alacritty normally, without tmux (Mod+Shift+Enter)
     # Make sure it points to Alacritty and directly executes your default shell (fish)
-    bindsym $mod+Shift+Return exec alacritty -e fish
-
+    bindsym $mod+Shift+Return exec alacritty -e fish 
     # Kill focused window
     bindsym $mod+Shift+q kill
 

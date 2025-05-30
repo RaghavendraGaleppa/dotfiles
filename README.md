@@ -12,6 +12,7 @@ sudo apt install powertop
 sudo apt install fish
 sudo apt install grim slurp wl-clipboard dunst swappy
 sudo apt install blueman
+sudo apt install cava
 
 
 
@@ -20,6 +21,7 @@ sudo apt install blueman
 ### Fonts
 - Make sure to install fonts from Jetbrains
 - Also install the nerdfonts of Jet brains from https://www.nerdfonts.com/font-downloads
+- copy over all the neccessary things from the fonts assets
 
 
 # Wallpapers

@@ -24,5 +24,4 @@ call plug#end()
 
 colorscheme default
 set notermguicolors
-
-
+set clipboard=unnamedplus

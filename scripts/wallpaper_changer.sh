@@ -5,7 +5,7 @@ INTERVAL=600 # Change 600 to your desired interval in seconds (10 minutes)
 
 while true; do
   # Find a random file in your Wallpapers directory
-  WALLPAPER_PATH="$(find "$WALLPAPER_DIR" -type f | shuf -n 1)"
+  WALLPAPER_PATH="$(find "$WALLPAPER_DIR" -type f -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.bmp" -o -iname "*.tiff" -o -iname "*.webp" -o -iname "*.heic"| shuf -n 1)"
 
   # Check if a file was found
   if [ -f "$WALLPAPER_PATH" ]; then

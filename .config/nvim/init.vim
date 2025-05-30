@@ -22,7 +22,7 @@ Plug 'deoplete-plugins/deoplete-jedi'
 call plug#end()
 
 
-colorscheme vim
+colorscheme default
 set notermguicolors
 
 

@@ -1,0 +1,4 @@
+# Example content for ~/.config/swappy/config
+[Default]
+save_dir=~/Pictures/Screenshots/
+save_filename_format=%Y-%m-%d-%H%M%S.png

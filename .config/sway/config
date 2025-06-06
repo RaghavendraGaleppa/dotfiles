@@ -300,7 +300,7 @@ include /etc/sway/config.d/*
 bindsym $mod+Shift+v workspace $ws3; exec brave-browser-nightly --profile-directory="Profile 1"
 bindsym $mod+Shift+g workspace $ws3; exec google-chrome --profile-directory="Profile 2"
 bindsym $mod+Shift+s exec slack
-bindsym $mod+Shift+p workspace $ws1; exec Cursor
+bindsym $mod+Shift+p workspace $ws1; exec Cursor --no-sandbox
 bindsym $mod+Shift+m workspace $ws10; exec alacritty -o "window.opacity=0.5" -t "cava_visualizer" -e cava -p ~/.config/cava/config
 bindsym $mod+Shift+f workspace $ws5; exec brave-browser-nightly --profile-directory="Default"
 

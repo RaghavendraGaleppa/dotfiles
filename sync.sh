@@ -8,6 +8,7 @@ cp -r ~/.config/alacritty .config/
 cp -r ~/.config/xdg-desktop-portal/ .config/
 cp -r ~/.config/rofi .config/
 cp -r ~/.config/cava .config/
+cp -r ~/.config/swappy .config/
 
 cp ~/.bashrc .
 cp ~/.bash_aliases .

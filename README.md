@@ -13,7 +13,8 @@ sudo apt install fish
 sudo apt install grim slurp wl-clipboard dunst swappy
 sudo apt install blueman
 sudo apt install cava
-
+sudo apt install python3-pip
+sudo apt install -y ipython3
 
 
 

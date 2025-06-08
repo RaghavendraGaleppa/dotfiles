@@ -27,3 +27,7 @@ sudo apt install -y ipython3
 
 # Wallpapers
 - https://github.com/dharmx/walls.git
+
+
+# For errors regarding the sandbox for Cursor, Obsidian
+sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0

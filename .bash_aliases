@@ -21,7 +21,7 @@ alias boop="ga .; gco; gp"
 alias cdV="cd ~/Videos/"
 alias cdd="cd ~/Downloads/"
 alias cdD="cd ~/Desktop/"
-alias cdn="cd ~/Desktop/Notes/March2025/"
+alias cdn="cd ~/Desktop/Notes/"
 alias cddj="cd ~/Desktop/DialyJournals/"
 
 
@@ -61,5 +61,6 @@ alias cddt="cd /home/raghaveendrawork/Desktop/ObsidianVaults/Daily\ Tracker"
 alias lth="ls -lt | head"
 alias docker="sudo docker"
 
-
+# Novels
+alias cdN="cd ~/Desktop/Novels/NovelDownloader/"
 

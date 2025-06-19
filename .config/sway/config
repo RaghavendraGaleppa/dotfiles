@@ -20,7 +20,7 @@ set $term2 ala
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show combi -combi-modes "window,run,ssh" -modes combi
+set $menu exec ~/.config/rofi/launchers/type-4/launcher.sh
 
 include /etc/sway/config-vars.d/*
 

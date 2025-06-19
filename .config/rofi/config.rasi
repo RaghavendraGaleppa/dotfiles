@@ -103,6 +103,9 @@ configuration {
       delay:  0;
     }
 
+    kb-mode-previous: "Alt+a";
+    kb-mode-next: "Alt+d";
+
 	/*---------- Keybindings ----------*/
 /*
 	kb-primary-paste: "Control+V,Shift+Insert";

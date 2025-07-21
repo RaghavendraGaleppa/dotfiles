@@ -64,3 +64,6 @@ alias docker="sudo docker"
 # Novels
 alias cdN="cd ~/Desktop/Novels/NovelDownloader/"
 
+alias sv="source .venv/bin/activate.fish"
+
+alias sk="sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0"

@@ -125,3 +125,5 @@ export OPENROUTER_API_KEY="sk-or-v1-defbb31ab91ae547fa8ccd058e209f31a7a55b98e576
 
 . "$HOME/.cargo/env"
 export PATH="$HOME/bin:$PATH"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"

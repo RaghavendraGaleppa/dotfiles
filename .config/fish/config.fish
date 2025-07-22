@@ -35,10 +35,17 @@ function fish_prompt
 end
 
 
-set -gx PYTHONPATH /home/raghaveendrawork/Desktop/ChineseNovelTranslation/ChatGPTBot/record-and-play-pynput
 set -gx OPENROUTER_API_KEY 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
 
 set -U fish_user_paths /home/raghaveendrawork/bin $fish_user_paths
 
 
 string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
+
+
+
+
+# Specifics for pyenv
+set -gx PYENV_ROOT "$HOME/.pyenv"
+fish_add_path "$PYENV_ROOT/bin"
+pyenv init - | source

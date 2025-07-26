@@ -46,6 +46,7 @@ set clipboard=unnamedplus
 " Place these *before* your Lua configuration if the Lua config depends on these settings.
 syntax enable
 filetype plugin indent on
+set relativenumber
 
 
 " === PLUGIN CONFIGURATIONS (LUA) ===

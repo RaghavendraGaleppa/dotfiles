@@ -386,7 +386,7 @@ set $notes_file VENotes.md
 for_window [title="vim-scratchpad"] move to scratchpad
 
 # Keybinding: Tell tmux to run the scratchpad script in a new session
-bindsym $mod+n exec alacritty -T "vim-scratchpad" -e /home/raghavendragaleppa/.config/sway/scripts/scratchpad-notes.sh
+bindsym $mod+n exec alacritty -T "vim-scratchpad" -e ~/.config/fish/scratchpad-notes.sh
 
 # Keybinding: To show/hide the scratchpad window.
 bindsym $mod+Shift+n scratchpad show

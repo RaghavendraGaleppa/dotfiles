@@ -123,7 +123,7 @@ fi
 export PYTHONPATH="/home/raghaveendrawork/Desktop/ChineseNovelTranslation/ChatGPTBot/record-and-play-pynput"
 export OPENROUTER_API_KEY="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"
 
-. "$HOME/.cargo/env"
 export PATH="$HOME/bin:$PATH"
 
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"
+
+. "$HOME/.local/bin/env"

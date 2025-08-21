@@ -73,11 +73,11 @@ for_window [title="cava_visualizer"] floating enable
     bindsym $mod+Return exec alacritty -e ~/.config/fish/start_tmux.fish main
     
     # Launch a new session of alacritty different from the main
-    bindsym $mod+Shift+n exec alacritty -e ~/.config/fish/start_tmux.fish regular
+    #bindsym $mod+Shift+n exec alacritty -e ~/.config/fish/start_tmux.fish regular
 
     # Launch Alacritty normally, without tmux (Mod+Shift+Enter)
     # Make sure it points to Alacritty and directly executes your default shell (fish)
-    bindsym $mod+Shift+Return exec alacritty -e fish 
+    bindsym $mod+Shift+Return exec alacritty
     # Kill focused window
     bindsym $mod+Shift+q kill
 
@@ -152,15 +152,23 @@ set $ws10 "10; Default"
 set $ws11 "10"
 
 
+# workspace $ws1 output $monitor_main
+# workspace $ws3 output $monitor_main
+# workspace $ws5 output $monitor_main
+# workspace $ws2 output $monitor_second
+# workspace $ws4 output $monitor_second
+# workspace $ws10 output $monitor_main
+# workspace $ws11 output $monitor_main
+
+
+
 workspace $ws1 output $monitor_main
+workspace $ws2 output $monitor_main
 workspace $ws3 output $monitor_main
-workspace $ws5 output $monitor_main
-workspace $ws2 output $monitor_second
 workspace $ws4 output $monitor_second
+workspace $ws5 output $monitor_second
 workspace $ws10 output $monitor_main
 workspace $ws11 output $monitor_main
-
-
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -300,12 +308,14 @@ include /etc/sway/config.d/*
 
 
 # Exclusives
-bindsym $mod+Shift+v workspace $ws3; exec brave-browser-nightly --profile-directory="Profile 1"
 bindsym $mod+Shift+g workspace $ws3; exec google-chrome --profile-directory="Profile 2"
-bindsym $mod+Shift+s exec slack
+bindsym $mod+Shift+s workspace $ws4; exec slack
 bindsym $mod+Shift+p workspace $ws1; exec Cursor --no-sandbox
 bindsym $mod+Shift+m workspace $ws10; exec alacritty -o "window.opacity=0.5" -t "cava_visualizer" -e cava -p ~/.config/cava/config
-bindsym $mod+Shift+f workspace $ws5; exec brave-browser-nightly --profile-directory="Default"
+bindsym $mod+Shift+f workspace $ws3; exec brave-browser-nightly --profile-directory="Default"
+bindsym $mod+Shift+v workspace $ws3; exec brave-browser-nightly --profile-directory="Profile 1"
+#bindsym $mod+Shift+f workspace $ws5; exec firefox -P "Personal"
+#bindsym $mod+Shift+v workspace $ws3; exec firefox -P "Work"
 
 bindsym $mod+Shift+o workspace $ws5; exec $term -e ranger
 
@@ -332,7 +342,8 @@ default_border pixel 2
 
 # Displays
 output $monitor_main pos 0 0
-#output $monitor_second scale 0.9
+#output $monitor_second scale 0.75
+output $monitor_main scale 1.25
 
 # Lock screen
 bindsym $mod+Shift+l exec swaylock -c 333333
@@ -357,3 +368,27 @@ exec swayidle -w \
     resume 'exec swaymsg "output * dpms on"' \
     timeout 600 'exec systemctl suspend' \
     before-sleep 'exec swaylock -f -c 000000'
+
+
+
+# 1. Add this with your other startup applications (at the top)
+#    It starts sov in the background listening for commands.
+exec "rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | /usr/local/bin/sov"
+
+# 2. Add this with your other keybindings
+#    Pressing mod+Tab will toggle the overview on and off.
+
+
+
+# ScratchPad
+set $notes_dir /home/raghavendragaleppa/Desktop/Notes
+set $notes_file VENotes.md
+for_window [title="vim-scratchpad"] move to scratchpad
+
+# Keybinding: Tell tmux to run the scratchpad script in a new session
+bindsym $mod+n exec alacritty -T "vim-scratchpad" -e /home/raghavendragaleppa/.config/sway/scripts/scratchpad-notes.sh
+
+# Keybinding: To show/hide the scratchpad window.
+bindsym $mod+Shift+n scratchpad show
+
+

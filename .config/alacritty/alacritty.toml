@@ -33,3 +33,4 @@ bright = { black = "#808080", red = "#FF5555", green = "#55FF55", yellow = "#FFF
 dim = { black = "#000000", red = "#800000", green = "#008000", yellow = "#808000", blue = "#000080", magenta = "#800080", cyan = "#008080", white = "#C0C0C0"}
 
 
+

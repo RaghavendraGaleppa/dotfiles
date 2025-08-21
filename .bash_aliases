@@ -1,20 +1,20 @@
 # General git commands
 alias ga="git add"
-alias gco="git commit"
 alias gcm="git commit -m"
 alias gs="git status"
 alias gd="git diff"
 alias gl="git log --oneline"
 alias gpu="git push origin"
-alias gpl="git pull origin"
+alias gpl="git pull"
 alias gpom="git pull origin main"
 alias gc="git checkout"
 alias gba="git branch -a"
 alias gcom="git checkout main"
+alias gco="git checkout"
 alias gcb="git checkout -b"
 alias gp="git push"
 alias boom="ga .;gcm \"Changes: minor\"; gp"
-alias boop="ga .; gco; gp"
+alias boop="ga .; git commit; gp"
 
 
 

@@ -49,3 +49,7 @@ string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-pa
 set -gx PYENV_ROOT "$HOME/.pyenv"
 fish_add_path "$PYENV_ROOT/bin"
 pyenv init - | source
+
+
+set -x SWAYSOCK (ls -t /run/user/(id -u)/sway-ipc.*.sock | head -n1)
+

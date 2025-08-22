@@ -128,9 +128,11 @@ for_window [title="cava_visualizer"] floating enable
     bindsym $mod+Shift+Right move right
 
 # Monitors
-set $monitor_main "eDP-1"
-set $monitor_second "HDMI-A-1"
+set $monitor_main "HDMI-A-1"
+set $monitor_second "DP-2"
+set $monitor_laptop "eDP-1"
 
+output $monitor_main mode 1920x1080@120Hz
 
 bindsym $mod+control+1 move workspace to output $monitor_main
 bindsym $mod+control+2 move workspace to output $monitor_second
@@ -163,10 +165,10 @@ set $ws11 "10"
 
 
 workspace $ws1 output $monitor_main
-workspace $ws2 output $monitor_main
 workspace $ws3 output $monitor_main
+workspace $ws5 output $monitor_main
+workspace $ws2 output $monitor_second
 workspace $ws4 output $monitor_second
-workspace $ws5 output $monitor_second
 workspace $ws10 output $monitor_main
 workspace $ws11 output $monitor_main
 
@@ -309,13 +311,12 @@ include /etc/sway/config.d/*
 
 # Exclusives
 bindsym $mod+Shift+g workspace $ws3; exec google-chrome --profile-directory="Profile 2"
-bindsym $mod+Shift+s workspace $ws4; exec slack
+bindsym $mod+Shift+s workspace $ws3; exec slack
 bindsym $mod+Shift+p workspace $ws1; exec Cursor --no-sandbox
 bindsym $mod+Shift+m workspace $ws10; exec alacritty -o "window.opacity=0.5" -t "cava_visualizer" -e cava -p ~/.config/cava/config
-bindsym $mod+Shift+f workspace $ws3; exec brave-browser-nightly --profile-directory="Default"
+bindsym $mod+Shift+f workspace $ws5; exec brave-browser-nightly --profile-directory="Default"
 bindsym $mod+Shift+v workspace $ws3; exec brave-browser-nightly --profile-directory="Profile 1"
-#bindsym $mod+Shift+f workspace $ws5; exec firefox -P "Personal"
-#bindsym $mod+Shift+v workspace $ws3; exec firefox -P "Work"
+
 
 bindsym $mod+Shift+o workspace $ws5; exec $term -e ranger
 
@@ -339,15 +340,31 @@ gaps inner 10
 default_border none
 default_border pixel 2
 
-
+# ================================== #
 # Displays
-output $monitor_main pos 0 0
-#output $monitor_second scale 0.75
-output $monitor_main scale 1.25
+# --- Three Monitor Layout ---
+# Arranges displays with the main 120Hz monitor in the center.
+# Layout: [Laptop Screen] [MSI 120Hz - CENTER] [Secondary Monitor]
+
+# Left Monitor (Laptop Screen)
+output $monitor_laptop mode 1920x1200@60.026Hz position 0 0
+
+# Center Monitor (Primary MSI 120Hz)
+output $monitor_main mode 1920x1080@120.000Hz position 1920 0
+
+# Right Monitor (Secondary)
+output $monitor_second mode 1920x1080@59.994Hz position 3840 0
 
 # Lock screen
 bindsym $mod+Shift+l exec swaylock -c 333333
+# --- Handle Laptop Lid Events ---
+# When the lid is closed, disable the laptop screen. Workspaces will move automatically.
+bindswitch lid:on output $monitor_laptop disable
+# When the lid is opened, re-enable the laptop screen.
+bindswitch lid:off output $monitor_laptop enable
+# ================================== #
 
+# ================================== #
 # Screenshot selected region and edit with swappy
 bindsym $mod+x exec grim -g "$(slurp)" - | swappy -f -
 # Screenshot current output and edit with swappy
@@ -366,7 +383,6 @@ exec swayidle -w \
     timeout 300 'exec swaylock -f -c 000000' \
     timeout 330 'exec swaymsg "output * dpms off"' \
     resume 'exec swaymsg "output * dpms on"' \
-    timeout 600 'exec systemctl suspend' \
     before-sleep 'exec swaylock -f -c 000000'
 
 

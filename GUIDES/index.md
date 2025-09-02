@@ -4,6 +4,11 @@ This directory contains various guides and documentation for system configuratio
 
 ## Available Guides
 
+### [Battery Thresholding Guide](battery-thresholding-guide.md)
+**How to Set Battery Charge Limits on Linux (Ubuntu/Debian)**
+
+A comprehensive guide for setting up battery charge thresholds on Linux laptops to improve long-term battery health. Covers multiple methods including TLP (recommended), manual ACPI configuration, and temporary solutions for better battery longevity.
+
 ### [Idle Screen Guide](idle-screen-guide.md)
 **Configuring Idle Behavior in Sway to Prevent System Suspend**
 

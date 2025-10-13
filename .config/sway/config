@@ -425,3 +425,4 @@ mode "workspace_scroll" {
 
 # When you press and hold $mod+x, enter the "workspace_scroll" mode
 #bindsym $mod+grave mode "workspace_scroll"
+for_window [app_id="nmtui"] floating enable, resize set 800 600, move position center

@@ -115,7 +115,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%H:%M:%S | %Y-%m-%d, %A}", // Add this line to show Hour:Minute:Second | Date | Day 
+        "format": "{:%H:%M:%S | %A, %d %B}", // Format: HH:MM:SS | Monday, 13 October 
         "interval": 1
     },
     "cpu": {
@@ -249,7 +249,7 @@
         "tooltip": true,
         "tooltip-format": "Connected to: {}", // {} will be replaced by the output of the 'exec' command
         "exec": "nmcli -t -f active,ssid dev wifi | awk -F: '/^yes/{print $2}'", // Command to get the network name
-        "on-click": "nm-connection-editor", // Command to launch the GUI tool
+        "on-click": "nm-connection-editor",
         "interval": 5 // How often to update the 'exec' command output (in seconds)
     }
 }

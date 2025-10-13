@@ -17,7 +17,7 @@
         "custom/media"
     ],
     "modules-center": [
-        "network#speed"
+        "clock"
     ],
     "modules-right": [
         "custom/wifi-gui", // Add this line to include the new module
@@ -32,7 +32,6 @@
         //"sway/language",
         "battery",
         "battery#bat2",
-        "clock",
         "tray",
         "custom/power"
     ],
@@ -117,7 +116,7 @@
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}",
-        "format": "{:%H:%M:%S}", // Add this line to show Hour:Minute:Second
+        "format": "{:%H:%M:%S | %Y-%m-%d}", // Add this line to show Hour:Minute:Second
         "interval": 1
     },
     "cpu": {

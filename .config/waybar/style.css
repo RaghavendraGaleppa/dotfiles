@@ -132,7 +132,7 @@ button:hover {
 }
 
 #clock {
-    background-color: rgba(100, 114, 125, 0.6); /* Slightly more opaque for readability */
+    background-color: rgba(41, 128, 185, 0.8); /* More vibrant blue */
 }
 
 #battery {

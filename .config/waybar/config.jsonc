@@ -115,8 +115,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}",
-        "format": "{:%H:%M:%S | %Y-%m-%d}", // Add this line to show Hour:Minute:Second
+        "format": "{:%H:%M:%S | %Y-%m-%d, %A}", // Add this line to show Hour:Minute:Second | Date | Day 
         "interval": 1
     },
     "cpu": {

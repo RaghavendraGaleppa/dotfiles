@@ -188,7 +188,18 @@ label:focus {
 }
 
 #memory {
-    background-color: rgba(155, 89, 182, 0.8); /* More vibrant purple */
+    background-color: rgba(128, 128, 128, 0.8); /* Gray for <50% (default/low) */
+    color: #FFFFFF;
+}
+
+#memory.medium {
+    background-color: rgba(155, 89, 182, 0.8); /* Purple for 50-75% */
+    color: #FFFFFF;
+}
+
+#memory.high {
+    background-color: rgba(245, 60, 60, 0.8); /* Red for >75% */
+    color: #FFFFFF;
 }
 
 #disk {

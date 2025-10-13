@@ -123,6 +123,10 @@
         "tooltip": false
     },
     "memory": {
+        "states": {
+            "medium": 50,
+            "high": 70
+        },
         "format": "{}% "
     },
     "temperature": {

@@ -73,7 +73,7 @@ for_window [title="cava_visualizer"] floating enable
     bindsym $mod+Return exec alacritty -e ~/.config/fish/start_tmux.fish main
     
     # Launch a new session of alacritty different from the main
-    #bindsym $mod+Shift+n exec alacritty -e ~/.config/fish/start_tmux.fish regular
+    bindsym $mod+Shift+b exec alacritty -e ~/.config/fish/start_tmux.fish regular
 
     # Launch Alacritty normally, without tmux (Mod+Shift+Enter)
     # Make sure it points to Alacritty and directly executes your default shell (fish)
@@ -113,8 +113,6 @@ for_window [title="cava_visualizer"] floating enable
     bindsym $mod+a focus left
     bindsym $mod+d focus right
 
-    bindsym $mod+Shift+a workspace prev
-    bindsym $mod+Shift+d workspace next
 
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
@@ -139,6 +137,8 @@ bindsym $mod+control+2 move workspace to output $monitor_second
 bindsym $mod+control+Right move workspace to output right
 bindsym $mod+control+Left move workspace to output left
 #
+bindsym $mod+Shift+a focus output $monitor_main
+bindsym $mod+Shift+d focus output $monitor_second
 # Workspaces:
 #
 set $ws1 "1"
@@ -318,7 +318,7 @@ include /etc/sway/config.d/*
 
 # Exclusives
 bindsym $mod+Shift+g workspace $ws3; exec google-chrome --profile-directory="Profile 2"
-bindsym $mod+Shift+s workspace $ws3; exec slack
+bindsym $mod+Shift+s workspace $ws4; exec slack
 bindsym $mod+Shift+p workspace $ws1; exec Cursor --no-sandbox
 bindsym $mod+Shift+m workspace $ws10; exec alacritty -o "window.opacity=0.5" -t "cava_visualizer" -e cava -p ~/.config/cava/config
 bindsym $mod+Shift+f workspace $ws5; exec brave-browser-nightly --profile-directory="Default"
@@ -351,22 +351,21 @@ default_border pixel 2
 # --- Three Monitor Layout ---
 # Arranges displays with the main 120Hz monitor in the center.
 # Layout: [Laptop Screen] [MSI 120Hz - CENTER] [Secondary Monitor]
+exec_always pkill kanshi; exec kanshi
 
+# Below code is disabled since I will be using kanshi as the dispaly configurer
 # Left Monitor (Laptop Screen)
-output $monitor_laptop mode 1920x1200@60.026Hz position 0 0
-
-# Center Monitor (Primary MSI 120Hz)
-output $monitor_main mode 1920x1080@120.000Hz position 1920 0
-
-# Right Monitor (Secondary)
-output $monitor_second mode 1920x1080@59.994Hz position 3840 0
-
-# Lock screen
-bindsym $mod+Shift+l exec swaylock -c 333333
-# --- Handle Laptop Lid Events ---
-# When the lid is closed, disable the laptop screen. Workspaces will move automatically.
+#output $monitor_laptop mode 1920x1200@60.026Hz position 0 0
+## Center Monitor (Primary MSI 120Hz)
+#output $monitor_main mode 1920x1080@120.000Hz position 1920 0
+## Right Monitor (Secondary)
+#output $monitor_second mode 1920x1080@59.994Hz position 3840 0
+## Lock screen
+#bindsym $mod+Shift+l exec swaylock -c 333333
+## --- Handle Laptop Lid Events ---
+## When the lid is closed, disable the laptop screen. Workspaces will move automatically.
 bindswitch lid:on output $monitor_laptop disable
-# When the lid is opened, re-enable the laptop screen.
+## When the lid is opened, re-enable the laptop screen.
 bindswitch lid:off output $monitor_laptop enable
 # ================================== #
 
@@ -374,7 +373,7 @@ bindswitch lid:off output $monitor_laptop enable
 # Screenshot selected region and edit with swappy
 bindsym $mod+x exec grim -g "$(slurp)" - | swappy -f -
 # Screenshot current output and edit with swappy
-bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | swappy -f -
+bindsym $mod+z exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | swappy -f -
 # Screenshot current output and save to Pictures
 bindsym $mod+Shift+x exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') ~/Pictures/GrimScreenshots/$(date +'%Y-%m-%d_%H-%M-%S_screenshot.png')
 
@@ -386,8 +385,8 @@ exec systemctl --user start pipewire-pulse.service
 
 # Autostart swayidle for automatic sleep/lock
 exec swayidle -w \
-    timeout 300 'exec swaylock -f -c 000000' \
-    timeout 330 'exec swaymsg "output * dpms off"' \
+    timeout 30000 'exec swaylock -f -c 000000' \
+    timeout 33000 'exec swaymsg "output * dpms off"' \
     resume 'exec swaymsg "output * dpms on"' \
     before-sleep 'exec swaylock -f -c 000000'
 
@@ -414,3 +413,15 @@ bindsym $mod+n exec alacritty -T "vim-scratchpad" -e ~/.config/fish/scratchpad-n
 bindsym $mod+Shift+n scratchpad show
 
 
+# Define a special mode for scrolling through workspaces
+mode "workspace_scroll" {
+    # While in this mode, bind the scroll wheel to workspace commands
+    bindsym Button4 workspace prev
+    bindsym Button5 workspace next
+
+    # IMPORTANT: When you release the trigger key, exit the mode
+    bindsym --release $mod+grave mode "default"
+}
+
+# When you press and hold $mod+x, enter the "workspace_scroll" mode
+#bindsym $mod+grave mode "workspace_scroll"

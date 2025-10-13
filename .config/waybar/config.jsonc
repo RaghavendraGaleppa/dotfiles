@@ -115,7 +115,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%H:%M:%S | %A, %d %B}", // Format: HH:MM:SS | Monday, 13 October 
+        "format": "{:%I:%M:%S %p | %d %B, %A}", // Format: 09:34:11 PM | Monday, 13 October 
         "interval": 1
     },
     "cpu": {

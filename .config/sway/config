@@ -318,8 +318,8 @@ include /etc/sway/config.d/*
 
 # Exclusives
 bindsym $mod+Shift+g workspace $ws3; exec google-chrome --profile-directory="Profile 2"
-bindsym $mod+Shift+s workspace $ws4; exec slack
-bindsym $mod+Shift+p workspace $ws1; exec Cursor --no-sandbox
+bindsym $mod+Shift+s workspace $ws3; exec slack
+bindsym $mod+Shift+p workspace $ws1; exec cursor
 bindsym $mod+Shift+m workspace $ws10; exec alacritty -o "window.opacity=0.5" -t "cava_visualizer" -e cava -p ~/.config/cava/config
 bindsym $mod+Shift+f workspace $ws5; exec brave-browser-nightly --profile-directory="Default"
 bindsym $mod+Shift+v workspace $ws3; exec brave-browser-nightly --profile-directory="Profile 1"
@@ -407,10 +407,10 @@ set $notes_file VENotes.md
 for_window [title="vim-scratchpad"] move to scratchpad
 
 # Keybinding: Tell tmux to run the scratchpad script in a new session
-bindsym $mod+n exec alacritty -T "vim-scratchpad" -e ~/.config/fish/scratchpad-notes.sh
+#bindsym $mod+n exec alacritty -T "vim-scratchpad" -e ~/.config/fish/scratchpad-notes.sh
 
 # Keybinding: To show/hide the scratchpad window.
-bindsym $mod+Shift+n scratchpad show
+#bindsym $mod+Shift+n scratchpad show
 
 
 # Define a special mode for scrolling through workspaces
@@ -426,3 +426,8 @@ mode "workspace_scroll" {
 # When you press and hold $mod+x, enter the "workspace_scroll" mode
 #bindsym $mod+grave mode "workspace_scroll"
 for_window [app_id="nmtui"] floating enable, resize set 800 600, move position center
+
+
+
+# Toggle Night Light (Manual)
+bindsym $mod+Shift+n exec pgrep -x gammastep && pkill -x gammastep || gammastep -O 3500

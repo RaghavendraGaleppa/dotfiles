@@ -25,6 +25,14 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 Plug 'deoplete-plugins/deoplete-jedi'
+" The File Explorer
+Plug 'nvim-tree/nvim-tree.lua'
+
+" Icons (Recommended) - requires a Nerd Font installed on your system
+Plug 'nvim-tree/nvim-web-devicons'
+
+
+Plug 'stevearc/aerial.nvim'
 
 call plug#end()
 " === END VIM-PLUG PLUGIN DEFINITIONS ===
@@ -79,3 +87,44 @@ if has('nvim')
 EOF
 endif
 " === END PLUGIN CONFIGURATIONS ===
+"
+" " --- NvimTree Setup Start ---
+lua << EOF
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+require("nvim-tree").setup({
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+EOF
+" --- NvimTree Setup End ---
+"
+"
+
+
+lua << EOF
+require('aerial').setup({
+  backends = { "treesitter", "markdown", "lsp" },
+  
+  -- This is the setting you are looking for:
+  -- It jumps to the symbol as soon as you move the cursor in the sidebar
+  autojump = true,
+
+  layout = {
+    max_width = { 40, 0.2 },
+    default_direction = "right",
+  },
+  
+  -- Optional: If you want the sidebar to stay open after you jump
+  close_on_select = true,
+})
+EOF

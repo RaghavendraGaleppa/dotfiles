@@ -13,6 +13,8 @@ set relativenumber
 
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType markdown setlocal foldmethod=indent
+" Open NvimTree, but move cursor back to the file if one was opened
+" autocmd VimEnter * NvimTreeOpen | wincmd p
 
 let mapleader="\<space>"
 nmap <Leader><Leader> :w<Enter>
@@ -54,3 +56,8 @@ nnoremap <leader><leader> za
 nnoremap <leader>j zj
 nnoremap <leader>k zk
 
+" Toggle NvimTree with Alt + ;
+nnoremap <A-;> :NvimTreeToggle<CR>
+nnoremap <A-p> :AerialToggle<CR>
+
+set splitright

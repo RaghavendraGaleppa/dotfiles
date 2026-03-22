@@ -22,7 +22,7 @@ alias boop="ga .; git commit; gp"
 alias cdV="cd ~/Videos/"
 alias cdd="cd ~/Downloads/"
 alias cdD="cd ~/Desktop/"
-alias cdn="cd ~/Desktop/Notes/"
+alias cdn="cd ~/Desktop/Notes2026/"
 alias cddj="cd ~/Desktop/DialyJournals/"
 
 

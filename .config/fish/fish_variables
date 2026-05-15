@@ -1,5 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export BROWSER:google\x2dchrome\x2dstable
+SETUVAR --export DEFAULT_BROWSER:google\x2dchrome\x2dstable
 SETUVAR --export PYENV_ROOT:/home/raghaveendrawork/\x2epyenv
 SETUVAR --export VDOC_PORT:5025
 SETUVAR __fish_initialized:3800

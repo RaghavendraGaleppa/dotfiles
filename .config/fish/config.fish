@@ -51,5 +51,11 @@ fish_add_path "$PYENV_ROOT/bin"
 pyenv init - | source
 
 
-set -x SWAYSOCK (ls -t /run/user/(id -u)/sway-ipc.*.sock | head -n1)
 
+# Only try to set SWAYSOCK if we are actually in a Sway session
+if set -q SWAYSOCK; or test "$XDG_SESSION_DESKTOP" = "sway"
+    set -l sway_socket (ls -t /run/user/(id -u)/sway-ipc.*.sock 2>/dev/null | head -n1)
+    if test -n "$sway_socket"
+        set -gx SWAYSOCK $sway_socket
+    end
+end
